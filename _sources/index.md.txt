@@ -47,4 +47,4 @@ from your_module import *
 * [License](license)
 * [Authors](authors)
 * [Changelog](changelog)
-* [Credits](api/modules)
+* [Contents](api/modules)
