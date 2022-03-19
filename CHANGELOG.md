@@ -5,3 +5,5 @@
 - Initial release!
 
 ## Version 1.0 (stable)
+
+- Docs included!
