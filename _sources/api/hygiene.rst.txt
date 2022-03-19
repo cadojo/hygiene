@@ -1,0 +1,10 @@
+hygiene package
+===============
+
+Module contents
+---------------
+
+.. automodule:: hygiene
+   :members:
+   :undoc-members:
+   :show-inheritance:

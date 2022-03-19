@@ -1,0 +1,7 @@
+hygiene
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   hygiene
