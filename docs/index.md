@@ -1,18 +1,45 @@
-# hygiene
+# Hygiene
+_Simple tools to help with module hygiene!_
 
-Simple tools to help with module hygiene!
+## Quick Start
 
+This package is pretty simple! It provides a single function, `cleanup`, which
+deletes all `locals` which are not listed in an "export" variable of your choice
+(this variable defaults to the name `__export__`). Using this function at the 
+end of your Python modules helps you keep only the essential items in the namespace!
+See the usage example below. See the [Overview](readme) for more information.
 
-## Note
+## Usage
 
-> This is the main page of your project's [Sphinx] documentation. It is
-> formatted in [Markdown]. Add additional pages by creating md-files in
-> `docs` or rst-files (formated in [reStructuredText]) and adding links to
-> them in the `Contents` section below.
->
-> Please check [Sphinx], [recommonmark] and [autostructify] for more information
-> about how to document your project and how to configure your preferences.
+```python
+"""your_module.py
 
+A super helpful Python file/module!
+"""
+
+__export__ = [
+    "my_function",
+    "another_function",
+]
+
+from typing  import T
+from hygiene import cleanup
+
+def my_function(x: T):
+    ...
+
+def another_function(x: T):
+    ...
+
+exec(cleanup())
+```
+
+```python
+"""Code which ~uses~ your_module"""
+
+from your_module import *
+# your namespace now has my_function and another_function, nothing else!
+```
 
 ## Contents
 
@@ -20,19 +47,4 @@ Simple tools to help with module hygiene!
 * [License](license)
 * [Authors](authors)
 * [Changelog](changelog)
-* [Module Reference](api/modules)
-
-
-## Indices and tables
-
-```eval_rst
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-```
-
-[Sphinx]: http://www.sphinx-doc.org/
-[Markdown]: https://daringfireball.net/projects/markdown/
-[reStructuredText]: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
-[recommonmark]: https://recommonmark.readthedocs.io/en/latest
-[autostructify]: https://recommonmark.readthedocs.io/en/latest/auto_structify.html
+* [Credits](api/modules)
