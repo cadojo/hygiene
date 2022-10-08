@@ -1,5 +1,5 @@
-# Hygiene
-_Simple tools to help with Python module hygiene!_
+# Module Hygiene
+_Simple tools to help with Python namespace hygiene!_
 
 
 ## Description
@@ -45,7 +45,8 @@ def square(x: T) -> T:
     """Returns the square of x!"""
     return x ** 2
 
-exec(cleanup())
+if __name__ != "__main__":
+    cleanup()
 ```
 
 This `cleanup` approach will likely change how you write Python modules.
@@ -82,10 +83,6 @@ def abssqrt(x: T) -> T:
     from numpy import abs, sqrt
     return sqrt(abs(x))
 
-exec(cleanup(export = "__export_list__")) # you can call your `export` variable whatever you want!
+if __name__ != "__main__":
+    cleanup(export = "__export_list__"))
 ```
-
-## Credits
-
-- PyScaffold
-  - This project has been set up using PyScaffold 4.1.5. For details and usage information on PyScaffold see https://pyscaffold.org/.
