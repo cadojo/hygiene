@@ -84,5 +84,5 @@ def abssqrt(x: T) -> T:
     return sqrt(abs(x))
 
 if __name__ != "__main__":
-    cleanup(export = "__export_list__"))
+    cleanup(export = __export_list__)
 ```
