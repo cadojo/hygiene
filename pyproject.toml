@@ -22,14 +22,18 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
+  "Typing :: Typed",
 ]
 dependencies = []
-version = "0.3.0"
+version = "0.3.1"
 
 [project.urls]
 Documentation = "https://github.com/cadojo/module-hygiene#readme"
 Issues = "https://github.com/cadojo/module-hygiene/issues"
 Source = "https://github.com/cadojo/module-hygiene"
+
+[tool.hatch.build]
+include = ["py.typed"]
 
 [tool.hatch.envs.default]
 dependencies = [
