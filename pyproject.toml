@@ -25,7 +25,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = []
-version = "0.3.3"
+version = "0.3.4"
 
 [project.urls]
 Documentation = "https://github.com/cadojo/module-hygiene#readme"

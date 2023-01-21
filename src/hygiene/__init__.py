@@ -43,13 +43,11 @@ def cleanup(*, keep: Optional[Dict[str, Any]] = None, underscore: bool = False):
 
             __export__ = keep if keep else locals["__export__"]
 
-            print(f"{__export__=}")
             if underscore:
                 for _ in (*locals,):
                     if locals[_] != __export__ and _ not in __export__:
                         del locals[_]
             else:
-                print("Here!")
                 for _ in (*locals,):
                     if (
                         locals[_] != __export__
