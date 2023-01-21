@@ -25,15 +25,12 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = []
-version = "0.3.1"
+version = "0.3.2"
 
 [project.urls]
 Documentation = "https://github.com/cadojo/module-hygiene#readme"
 Issues = "https://github.com/cadojo/module-hygiene/issues"
 Source = "https://github.com/cadojo/module-hygiene"
-
-[tool.hatch.build]
-include = ["py.typed"]
 
 [tool.hatch.envs.default]
 dependencies = [
