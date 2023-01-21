@@ -24,15 +24,12 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = []
-dynamic = ["version"]
+version = "0.3.0"
 
 [project.urls]
-Documentation = "https://github.com/unknown/module-hygiene#readme"
-Issues = "https://github.com/unknown/module-hygiene/issues"
-Source = "https://github.com/unknown/module-hygiene"
-
-[tool.hatch.version]
-path = "hygiene/__about__.py"
+Documentation = "https://github.com/cadojo/module-hygiene#readme"
+Issues = "https://github.com/cadojo/module-hygiene/issues"
+Source = "https://github.com/cadojo/module-hygiene"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -49,9 +46,6 @@ python = ["38", "39", "310", "311"]
 [tool.coverage.run]
 branch = true
 parallel = true
-omit = [
-  "hygiene/__about__.py",
-]
 
 [tool.coverage.report]
 exclude_lines = [

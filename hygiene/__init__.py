@@ -14,9 +14,11 @@ exported when users type 'from module import *'. The same could be said about th
 deleted!
 """
 
-__export__ = {"cleanup",}
+__export__ = {
+    "cleanup",
+}
 
-from typing import Optional, Iterable
+from typing import Optional, Dict, Any
 from importlib.metadata import version, PackageNotFoundError
 
 try:
@@ -24,9 +26,12 @@ try:
 except PackageNotFoundError:
     __version__ = "unknown"
 
-def cleanup(export: Optional[Iterable] = None):
+
+def cleanup(*, keep: Optional[Dict[str, Any]] = None, underscore: bool = False):
     """
-    Delete every non-exported name in the caller's namespace!
+    Delete every non-exported name in the caller's namespace! If the underscore keyword
+    argument is set to True, names which start with a leading underscore will also be
+    deleted.
     """
     import inspect
 
@@ -36,13 +41,23 @@ def cleanup(export: Optional[Iterable] = None):
         if parent:
             locals = parent.f_locals
 
-            __export__ = export if export else locals["__export__"]
+            __export__ = keep if keep else locals["__export__"]
 
-            for _ in (*locals,):
-                if locals[_] != __export__ and not _.startswith("__") and _ not in __export__:
-                    del locals[_]
-    
-if __name__ == "__main__":
-    ...
-else:
+            print(f"{__export__=}")
+            if underscore:
+                for _ in (*locals,):
+                    if locals[_] != __export__ and _ not in __export__:
+                        del locals[_]
+            else:
+                print("Here!")
+                for _ in (*locals,):
+                    if (
+                        locals[_] != __export__
+                        and not _.startswith("_")
+                        and _ not in __export__
+                    ):
+                        del locals[_]
+
+
+if __name__ != "__main__":
     cleanup()
