@@ -25,20 +25,26 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = []
-version = "0.3.2"
+version = "0.3.3"
 
 [project.urls]
 Documentation = "https://github.com/cadojo/module-hygiene#readme"
 Issues = "https://github.com/cadojo/module-hygiene/issues"
 Source = "https://github.com/cadojo/module-hygiene"
 
+[tool.hatch.build]
+sources = ["src"]
+include = ["*.py", "*.typed"]
+exclude = ["tests"]
+
 [tool.hatch.envs.default]
 dependencies = [
   "pytest",
   "pytest-cov",
 ]
+
 [tool.hatch.envs.default.scripts]
-cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=module_hygiene --cov=tests"
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src --cov=tests"
 no-cov = "cov --no-cov"
 
 [[tool.hatch.envs.test.matrix]]
